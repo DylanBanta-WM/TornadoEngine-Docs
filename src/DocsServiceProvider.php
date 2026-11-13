@@ -31,6 +31,10 @@ class DocsServiceProvider extends ServiceProvider
 
         $this->callAfterResolving(Nav::class, function (Nav $nav) {
             $nav->add(__('Docs'), 'docs.index', active: 'docs.*', order: 900, can: 'docs.view');
+            if (method_exists($nav, 'tool')) {
+                $nav->tool(__('Docs'), 'docs.index', __('How to set up and use Tornado Engine.'),
+                    section: __('Help'), icon: 'book', color: 'amber', can: 'docs.view');
+            }
         });
 
         // Core's DNS and HTTPS guide, also shown at /dns-setup during first-time setup.
