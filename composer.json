@@ -15,12 +15,12 @@
     "extra": {
         "tornado": {
             "name": "Docs",
-            "core": ">=0.2",
+            "core": ">=0.3",
             "core-module": true,
             "provider": "TornadoEngine\\Docs\\DocsServiceProvider"
         },
         "branch-alias": {
-            "dev-main": "0.1.x-dev"
+            "dev-main": "0.2.x-dev"
         }
     }
 }

@@ -3,7 +3,7 @@
 namespace TornadoEngine\Docs;
 
 /**
- * One doc: its address (/administration/docs/{slug}), title and the Blade view with its content.
+ * One doc: its address (/docs/{slug}), title and the Blade view with its content.
  */
 final readonly class Doc
 {

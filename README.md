@@ -1,6 +1,6 @@
 # Tornado Engine Docs
 
-A [Tornado Engine](https://github.com/DylanBanta-WM/TornadoEngineCore) core-module: documentation pages in Administration, at `/administration/docs`.
+A [Tornado Engine](https://github.com/DylanBanta-WM/TornadoEngineCore) core-module: documentation pages at `/docs`, for people with the `docs.view` permission (admins, until the Access module says otherwise). Docs adds a menu item through Nav.
 
 ## Adding a doc from a module
 
@@ -15,4 +15,4 @@ public function boot(Docs $docs): void
 }
 ```
 
-The view holds the doc's content only. Docs shows it at `/administration/docs/using-notes`.
+The view holds the doc's content only. Docs shows it at `/docs/using-notes`.

@@ -2,8 +2,10 @@
 
 namespace TornadoEngine\Docs;
 
-use App\Administration\Administration;
+use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use TornadoEngine\Nav\Nav;
 
 class DocsServiceProvider extends ServiceProvider
 {
@@ -12,13 +14,19 @@ class DocsServiceProvider extends ServiceProvider
         $this->app->singleton(Docs::class);
     }
 
-    public function boot(Docs $docs, Administration $administration): void
+    public function boot(Docs $docs): void
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'docs');
         $this->loadRoutesFrom(__DIR__.'/../routes/docs.php');
 
-        $administration->add(__('Docs'), 'administration.docs.index', active: 'administration.docs.*', order: 900,
-            description: __('Guides for setting up and using Tornado Engine.'));
+        // Who can read the docs. The Access module decides this when it's installed.
+        if (! Gate::has('docs.view')) {
+            Gate::define('docs.view', fn (User $user) => (bool) $user->is_admin);
+        }
+
+        $this->callAfterResolving(Nav::class, function (Nav $nav) {
+            $nav->add(__('Docs'), 'docs.index', active: 'docs.*', order: 900, can: 'docs.view');
+        });
 
         // Core's DNS and HTTPS guide, also shown at /dns-setup during first-time setup.
         $docs->add('dns-setup', __('Set up DNS and HTTPS'), 'docs.dns-setup', order: 10);
