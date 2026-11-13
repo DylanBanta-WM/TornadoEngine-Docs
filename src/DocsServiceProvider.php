@@ -5,6 +5,7 @@ namespace TornadoEngine\Docs;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use TornadoEngine\Access\Access;
 use TornadoEngine\Nav\Nav;
 
 class DocsServiceProvider extends ServiceProvider
@@ -23,6 +24,10 @@ class DocsServiceProvider extends ServiceProvider
         if (! Gate::has('docs.view')) {
             Gate::define('docs.view', fn (User $user) => (bool) $user->is_admin);
         }
+
+        $this->callAfterResolving(Access::class, function (Access $access) {
+            $access->permission('docs.view', __('Read the docs'), module: 'Docs');
+        });
 
         $this->callAfterResolving(Nav::class, function (Nav $nav) {
             $nav->add(__('Docs'), 'docs.index', active: 'docs.*', order: 900, can: 'docs.view');

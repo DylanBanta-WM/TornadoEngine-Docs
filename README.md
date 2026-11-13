@@ -1,6 +1,6 @@
 # Tornado Engine Docs
 
-A [Tornado Engine](https://github.com/DylanBanta-WM/TornadoEngineCore) core-module: documentation pages at `/docs`, for people with the `docs.view` permission (admins, until the Access module says otherwise). Docs adds a menu item through Nav.
+A [Tornado Engine](https://github.com/DylanBanta-WM/TornadoEngineCore) core-module: documentation pages at `/docs`, for people with the `docs.view` permission (admins, until the Access module says otherwise). Docs adds a menu item through Nav, and Access lists `docs.view` so roles can grant it.
 
 ## Adding a doc from a module
 
