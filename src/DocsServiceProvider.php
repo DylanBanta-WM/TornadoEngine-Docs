@@ -39,5 +39,6 @@ class DocsServiceProvider extends ServiceProvider
 
         // Core's DNS and HTTPS guide, also shown at /dns-setup during first-time setup.
         $docs->add('dns-setup', __('Set up DNS and HTTPS'), 'docs.dns-setup', order: 10);
+        $docs->add('sharing-modules', __('Sharing a module'), 'docs::pages.sharing-modules', order: 90);
     }
 }
