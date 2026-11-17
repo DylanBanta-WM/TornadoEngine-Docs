@@ -35,6 +35,6 @@
 
     <section class="space-y-2">
         <h2 class="font-semibold text-gray-900 dark:text-gray-100">{{ __('4. On the Modules page') }}</h2>
-        <p>{{ __('It\'s listed under Community modules.') }}</p>
+        <p>{{ __('It\'s listed under Other districts\' modules.') }}</p>
     </section>
 </div>
