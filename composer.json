@@ -15,6 +15,7 @@
     "extra": {
         "tornado": {
             "name": "Docs",
+            "prompt": "Help pages: $docs->add(...).",
             "core": ">=0.3",
             "core-module": true,
             "provider": "TornadoEngine\\Docs\\DocsServiceProvider"
